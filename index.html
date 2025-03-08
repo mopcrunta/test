@@ -17,15 +17,34 @@
         }
 
         #myTextbox {
-            padding: 10px;
-             font-size: 1.5em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            text-align: center;
-            width: 200px; /* テキストボックスの幅を固定 */
-            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */
+		
+			display: block; /* ブロック要素にする */
+			margin: 0 auto; /* 左右のマージンを自動調整して中央寄せ */
+			padding: 10px;
+			font-size: 2.0em;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 20px;
+			text-align: center;
+			width: 450px; /* テキストボックスの幅を固定 */
+			box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */
+
         }
+		
+        .all {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+		
+		.all .button-group button{
+		
+			width: 130px;
+			height: 80px;
+			font-size: 1.5em;
+		}
+		
 
         button {
             padding: 10px 20px;
@@ -68,17 +87,6 @@
 			height: 80px;
 		}		
         
-        .all {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-		
-		.all .button-group button{
-		
-			width: 130px;
-			height: 80px;
-		}
 
         .allItem {
             display: flex;
@@ -90,19 +98,24 @@
         
 		#categoryBox{
 		
-	        padding: 10px;
-            font-size: 1.5em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            text-align: center;
-            width: 380px; /* テキストボックスの幅を固定 */
-            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
+			display: block; /* ブロック要素にする */
+			margin: 0 auto; /* 左右のマージンを自動調整して中央寄せ */
+			padding: 10px;
+			font-size: 2.0em;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 20px;
+			text-align: center;
+			width: 380px; /* テキストボックスの幅を固定 */
+			box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */
 		
 		}
-		.category{
+		.categoryBox-button-group{
 		
-			margin: 50px;
+			display: flex;
+			justify-content: center; /* ボタンを中央揃え */
+			gap: 15px; /* ボタン間の間隔を統一 */
+			margin-bottom: 10px; /* 下のボタンとの余白を統一 */
 		
 		}
 		.categoryBox-button-group button{
@@ -111,18 +124,21 @@
 			height: 80px;
 			background-color: #ff8400;
 			font-size: 1.2em
+			
 		}
 
 		#koumokuBox{
 		
-	        padding: 10px;
-             font-size: 1.5em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            text-align: center;
-            width: 850px; /* テキストボックスの幅を固定 */
-            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
+			display: block; /* ブロック要素にする */
+			margin: 0 auto; /* 左右のマージンを自動調整して中央寄せ */
+			padding: 10px;
+			font-size: 2.0em;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 20px;
+			text-align: center;
+			width: 850px; /* テキストボックスの幅を固定 */
+			box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */
 		
 		}
 		
@@ -155,14 +171,18 @@
 		}
 		
 		#Code{
+
+			display: block; /* ブロック要素にする */
+			margin: 0 auto; /* 左右のマージンを自動調整して中央寄せ */
 			padding: 10px;
-            font-size: 1.5em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            text-align: center;
-            width: 850px; /* テキストボックスの幅を固定 */
-            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
+			font-size: 2.0em;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 20px;
+			text-align: center;
+			width: 800px; /* テキストボックスの幅を固定 */
+			box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */
+
 		
 		
 		}
@@ -176,37 +196,33 @@
 	
 	
 
-        <input type="number" id="myTextbox" value="0">
-
-        <div class="priceReset">
-            <button onclick="resetValue()">リセット</button>
-        </div>
-
+        <input type="number" id="myTextbox" value="">
 
         <div class="button-group">
-            <button onclick="changeValue(1)">+ 1円 </button>
-            <button onclick="changeValue(-1)">- 1円 </button>
+            <button onclick="addValue(1)">1</button>
+            <button onclick="addValue(2)">2</button>
+			<button onclick="addValue(3)">3</button>
         </div>
 
         <div class="button-group">
-            <button onclick="changeValue(10)">+ 十円</button>
-            <button onclick="changeValue(-10)">- 十円</button>
+            <button onclick="addValue(4)">4</button>
+            <button onclick="addValue(5)">5</button>
+			<button onclick="addValue(6)">6</button>
         </div>
 
         <div class="button-group">
-            <button onclick="changeValue(100)">+ 百円</button>
-            <button onclick="changeValue(-100)">- 百円</button>
+            <button onclick="addValue(7)">7</button>
+            <button onclick="addValue(8)">8</button>
+			<button onclick="addValue(9)">9</button>
         </div>
 
         <div class="button-group">
-            <button onclick="changeValue(1000)">+ 千円</button>
-            <button onclick="changeValue(-1000)">- 千円</button>
+            <button onclick="calcClear()">C</button>
+            <button onclick="addValue(0)">0</button>
+			<button onclick="calcBS()">BS</button>
         </div>
 
-        <div class="button-group">
-            <button onclick="changeValue(10000)">+ 万円</button>
-            <button onclick="changeValue(-10000)">- 万円</button>
-        </div>
+
 
     </div>
 
@@ -314,7 +330,27 @@
 			let buttonText = event.target.textContent; // クリックされたボタンのテキストを取得
 			document.getElementById("categoryBox").value = buttonText;
 		}
+		
+		function addValue(addnum){
+		
+			let textbox = document.getElementById("myTextbox");
+			let newtextBox = textbox.value.toString();
+			textbox.value = `${newtextBox}${addnum}`;
+	
+		}
+		
+		function calcClear(){
 			
+			let textbox = document.getElementById("myTextbox");
+			textbox.value = "";
+		}
+
+		function calcBS(){
+			
+			let textbox = document.getElementById("myTextbox");
+			textbox.value = textbox.value.slice(0, -1);
+		}		
+		
         function changeValue(amount) {
             let textbox = document.getElementById("myTextbox");
             let currentValue = textbox.value; 
