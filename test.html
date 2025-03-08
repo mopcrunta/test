@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数値増減テキストボックス</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #myTextbox {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 200px; /* テキストボックスの幅を固定 */
+            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .button-group2 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .button-group2 button {
+           width: 200px; 
+        }
+        
+        .all {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .allItem {
+            display: flex;
+
+            align-items: top;
+			display: flex; 
+			flex-direction: row; 
+        }
+        
+		#categoryBox{
+		
+	        padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 250px; /* テキストボックスの幅を固定 */
+            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
+		
+		}
+		.category{
+		
+			margin: 50px;
+		
+		}
+		.categoryBox-button-group button{
+		
+			width: 120px;
+			background-color: #ff8400;
+		}
+
+		#koumokuBox{
+		
+	        padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 250px; /* テキストボックスの幅を固定 */
+            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
+		
+		}
+		
+		.koumokuBox-button-group button{
+		
+			width: 120px;
+			background-color: #b4ddc0;
+		}        
+    </style>
+</head>
+<body>    
+
+<div class ='allItem'>
+
+    <div class='all'>
+	
+	
+
+        <input type="number" id="myTextbox" value="0">
+
+        <div class="button-group2">
+            <button onclick="resetValue()">リセット</button>
+        </div>
+
+
+        <div class="button-group">
+            <button onclick="changeValue(1)">+ 1円 </button>
+            <button onclick="changeValue(-1)">- 1円 </button>
+        </div>
+
+        <div class="button-group">
+            <button onclick="changeValue(10)">+ 十円</button>
+            <button onclick="changeValue(-10)">- 十円</button>
+        </div>
+
+        <div class="button-group">
+            <button onclick="changeValue(100)">+ 百円</button>
+            <button onclick="changeValue(-100)">- 百円</button>
+        </div>
+
+        <div class="button-group">
+            <button onclick="changeValue(1000)">+ 千円</button>
+            <button onclick="changeValue(-1000)">- 千円</button>
+        </div>
+
+        <div class="button-group">
+            <button onclick="changeValue(10000)">+ 万円</button>
+            <button onclick="changeValue(-10000)">- 万円</button>
+        </div>
+
+    </div>
+
+	<div class "category"> 
+	
+        <input type="text" id="categoryBox" value="0">
+		
+        <div class="categoryBox-button-group">
+			<button onclick="setValue()">食費</button>
+			<button onclick="setValue()">食費 現金</button>
+        </div>	
+		
+        <div class="categoryBox-button-group">
+			<button onclick="setValue()">日用品</button>
+			<button onclick="setValue()">日用品 現金</button>
+        </div>			
+        <div class="categoryBox-button-group">
+			<button onclick="setValue()">外食</button>
+			<button onclick="setValue()">外食 現金</button>
+        </div>	
+		
+        <div class="categoryBox-button-group">
+			<button onclick="setValue()">その他</button>
+			<button onclick="setValue()">その他 現金</button>	
+        </div>		
+				
+	</div>
+	
+
+	
+	<div class "koumoku">
+
+        <input type="text" id="koumokuBox" value="0">
+		
+        <div class="koumokuBox-button-group">
+			<button onclick="setValue()">食費</button>
+			<button onclick="setValue()">食費 現金</button>
+        </div>	
+		
+        <div class="koumokuBox-button-group">
+			<button onclick="setValue()">日用品</button>
+			<button onclick="setValue()">日用品 現金</button>
+        </div>			
+        <div class="koumokuBox-button-group">
+			<button onclick="setValue()">外食</button>
+			<button onclick="setValue()">外食 現金</button>
+        </div>	
+		
+        <div class="koumokuBox-button-group">
+			<button onclick="setValue()">その他</button>
+			<button onclick="setValue()">その他 現金</button>	
+        </div>			
+
+	</div>
+</div>	
+    <script>
+
+        function changeValue(amount) {
+            let textbox = document.getElementById("myTextbox");
+            let currentValue = textbox.value; 
+
+            if (currentValue === null || currentValue.trim() === "") {
+                textbox.value = amount; 
+            } else {
+                let parsedValue = parseInt(currentValue);
+                if (!isNaN(parsedValue)) { 
+                    textbox.value = parsedValue + amount;
+                } else {                
+                     textbox.value = amount;
+                }
+            }
+        }
+                        
+        function resetValue(){
+             let textbox = document.getElementById("myTextbox");
+             textbox.value = 0;
+        }
+
+    </script>
+
+</body>
+</html>
