@@ -396,7 +396,7 @@
 				.then(response => response.json().then(data => ({ status: response.status, data }))) // レスポンスをJSONに変換
 				.then(result => {
 					if (result.status >= 200 && result.status < 300) {
-						alert("LINEメッセージ送信成功！");
+						alert(`${result.data.message}`);
 					} else {
 						alert("LINEメッセージ送信失敗: " + result.status + " " + JSON.stringify(result.data));
 					}
