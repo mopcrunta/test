@@ -343,6 +343,8 @@
 			
 			let textbox = document.getElementById("myTextbox");
 			textbox.value = "";
+			
+			alert(document.getElementById('Code').value);
 		}
 
 		function calcBS(){
@@ -375,11 +377,11 @@
 
 	 function sendMessage() {
 				const url = "https://2tbitg5g08.execute-api.ap-northeast-1.amazonaws.com/default/linesend";
-							
+								
 				const msgValue = `【${document.getElementById("categoryBox").value}】${document.getElementById("myTextbox").value}（${document.getElementById("koumokuBox").value}）`
 				const payload = {
 					"linemsg": msgValue,
-					"token": "suzumesky"
+					"token": document.getElementById('Code').value
 				};
 
 				const headers = {
