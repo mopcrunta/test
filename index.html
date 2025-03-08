@@ -232,7 +232,7 @@
 			<button onclick="setValue(event)">その他</button>
 			<button onclick="setValue(event)">その他 現金</button>	
         </div>		
-
+	
 	</div>
 
 	
@@ -293,6 +293,9 @@
     });
 
     function changeButtonText(event) {
+	
+		sendMessage();
+		
         let button = event.target;
         let originalText = button.textContent; // 元のボタンテキストを保存
         button.textContent = "送信済み";
@@ -332,8 +335,42 @@
              let textbox = document.getElementById("myTextbox");
              textbox.value = 0;
         }
+		
+	let token2 = "gn2KFAUS81aMiv69ilaYZ9KxQ+8bQbSBI7KYMjqsEShhHA5mGE4H3gkkVVshdH6/lYA1kSwPdAfSuwa3QB9F2VEXTY/LwNUmlXeOtDAE+49l/JzR+7PUiGYirx1ZP1oWgLjzWfUI6y4Wl4AKLiWnCwdB04t89/1O/w1cDnyilFU="; 
 
-    </script>
+	 function sendMessage() {
+				const url = "https://2tbitg5g08.execute-api.ap-northeast-1.amazonaws.com/default/linesend";
+				
+				const payload = {
+					"linetoken": "gn2KFAUS81aMiv69ilaYZ9KxQ+8bQbSBI7KYMjqsEShhHA5mGE4H3gkkVVshdH6/lYA1kSwPdAfSuwa3QB9F2VEXTY/LwNUmlXeOtDAE+49l/JzR+7PUiGYirx1ZP1oWgLjzWfUI6y4Wl4AKLiWnCwdB04t89/1O/w1cDnyilFU=",
+					"linemsg": "test",
+					"token": "suzumesky"
+				};
+
+				const headers = {
+					"Content-Type": "application/json"
+				};
+
+				fetch(url, {
+					method: "POST",
+					headers: headers,
+					body: JSON.stringify(payload)
+				})
+				.then(response => response.json().then(data => ({ status: response.status, data }))) // レスポンスをJSONに変換
+				.then(result => {
+					if (result.status >= 200 && result.status < 300) {
+						alert("LINEメッセージ送信成功！");
+					} else {
+						alert("LINEメッセージ送信失敗: " + result.status + " " + JSON.stringify(result.data));
+					}
+				})
+				.catch(error => {
+					alert("エラーが発生しました: " + error);
+				});
+			}
+
+
+	</script>
 
 </body>
 </html>
