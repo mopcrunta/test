@@ -12,12 +12,12 @@
             min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
-			 font-size: 1.2em;
+			font-size: 1.2em;
         }
 
         #myTextbox {
             padding: 10px;
-             font-size: 1.2em;
+             font-size: 1.5em;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 20px;
@@ -29,7 +29,7 @@
         button {
             padding: 10px 20px;
             font-size: 1.2em;
-            margin: 10px;
+            margin: 15px;
             border: none;
             border-radius: 4px;
             background-color: #007bff;
@@ -76,7 +76,7 @@
 		.all .button-group button{
 		
 			width: 130px;
-			 height: 80px;
+			height: 80px;
 		}
 
         .allItem {
@@ -90,7 +90,7 @@
 		#categoryBox{
 		
 	        padding: 10px;
-            font-size: 1.2em;
+            font-size: 1.5em;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 20px;
@@ -115,21 +115,56 @@
 		#koumokuBox{
 		
 	        padding: 10px;
-             font-size: 1.2em;
+             font-size: 1.5em;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 20px;
             text-align: center;
-            width: 250px; /* テキストボックスの幅を固定 */
+            width: 850px; /* テキストボックスの幅を固定 */
             box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
 		
 		}
 		
 		.koumokuBox-button-group button{
-		
-			width: 120px;
-			background-color: #b4ddc0;
+			width: 250px;
+			height: 80px;
+			background-color: #8AAA94;
 		}        
+		
+		.send {
+			
+			
+	        font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin-top: 50px;
+            background-color: #f0f0f0;
+			font-size: 1.2em;	
+		
+		}
+		
+		.send button{
+		
+				width: 800px;
+			height: 80px;
+			background-color: #1AAA94;		
+		
+		}
+		
+		#Code{
+			padding: 10px;
+            font-size: 1.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 850px; /* テキストボックスの幅を固定 */
+            box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
+		
+		
+		}
     </style>
 </head>
 <body>    
@@ -176,58 +211,106 @@
 
 	<div class "category"> 
 	
-        <input type="text" id="categoryBox" value="0">
+        <input type="text" id="categoryBox" value="">
 		
         <div class="categoryBox-button-group">
-			<button onclick="setValue()">食費</button>
-			<button onclick="setValue()">食費 現金</button>
+			<button onclick="setValue(event)">食費</button>
+			<button onclick="setValue(event)">食費 現金</button>
         </div>	
 		
         <div class="categoryBox-button-group">
-			<button onclick="setValue()">日用品</button>
-			<button onclick="setValue()">日用品 現金</button>
+			<button onclick="setValue(event)">日用品</button>
+			<button onclick="setValue(event)">日用品 現金</button>
         </div>			
         <div class="categoryBox-button-group">
-			<button onclick="setValue()">外食</button>
-			<button onclick="setValue()">外食 現金</button>
+			<button onclick="setValue(event)">外食</button>
+			<button onclick="setValue(event)">外食 現金</button>
         </div>	
 		
         <div class="categoryBox-button-group">
-			<button onclick="setValue()">その他</button>
-			<button onclick="setValue()">その他 現金</button>	
+			<button onclick="setValue(event)">その他</button>
+			<button onclick="setValue(event)">その他 現金</button>	
         </div>		
-				
+
 	</div>
-		
+
+	
 </div>	
 
 <div class "koumoku">
 
-        <input type="text" id="koumokuBox" value="0">
+        <input type="text" id="koumokuBox" value="">
 		
         <div class="koumokuBox-button-group">
-			<button onclick="setValue()">食費</button>
-			<button onclick="setValue()">食費 現金</button>
+			<button onclick="koumokusetValue(event)">スーパー</button>
+			<button onclick="koumokusetValue(event)">ドラッグストア</button>
+			<button onclick="koumokusetValue(event)">コンビニ</button>
         </div>	
 		
         <div class="koumokuBox-button-group">
-			<button onclick="setValue()">日用品</button>
-			<button onclick="setValue()">日用品 現金</button>
+			<button onclick="koumokusetValue(event)">軽油</button>
+			<button onclick="koumokusetValue(event)">バイクガス</button>
+			<button onclick="koumokusetValue(event)">灯油</button>
         </div>			
         <div class="koumokuBox-button-group">
-			<button onclick="setValue()">外食</button>
-			<button onclick="setValue()">外食 現金</button>
+			<button onclick="koumokusetValue(event)">マクドナルド</button>
+			<button onclick="koumokusetValue(event)">すき家</button>
+			<button onclick="koumokusetValue(event)">くるまやラーメン</button>
         </div>	
 		
         <div class="koumokuBox-button-group">
-			<button onclick="setValue()">その他</button>
-			<button onclick="setValue()">その他 現金</button>	
+			
+			<button onclick="koumokusetValue(event)">Suicaチャージ</button>	
         </div>			
 
 	</div>
 	
+<div class ="send">
+
+	<button onclick="changeButtonText(event)">送信</button>
+	<input type="password" id="Code" value="">	
+	
+</div>
+
+	
     <script>
 
+	// ローカルストレージキー
+    const STORAGE_KEY = 'codeInputValue';
+
+    // ページ読み込み時にローカルストレージから値を読み込む
+    window.onload = function() {
+        const storedValue = localStorage.getItem(STORAGE_KEY);
+        if (storedValue) {
+            document.getElementById('Code').value = storedValue;
+        }
+    };
+
+    // テキストボックスの値が変更されたときにローカルストレージに保存する
+    document.getElementById('Code').addEventListener('input', function() {
+        localStorage.setItem(STORAGE_KEY, this.value);
+    });
+
+    function changeButtonText(event) {
+        let button = event.target;
+        let originalText = button.textContent; // 元のボタンテキストを保存
+        button.textContent = "送信済み";
+
+        setTimeout(function() {
+            button.textContent = originalText; // 1秒後に元のテキストに戻す
+        }, 1000);
+    }
+	
+		function koumokusetValue(event) {
+			let buttonText = event.target.textContent; // クリックされたボタンのテキストを取得
+			document.getElementById("koumokuBox").value = buttonText;
+		}	
+		
+		function setValue(event) {
+			let buttonText = event.target.textContent; // クリックされたボタンのテキストを取得
+			document.getElementById("categoryBox").value = buttonText;
+		}
+			
         function changeValue(amount) {
             let textbox = document.getElementById("myTextbox");
             let currentValue = textbox.value; 
