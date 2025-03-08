@@ -28,8 +28,8 @@
 
         button {
             padding: 10px 20px;
-             font-size: 1.2em;
-            margin: 5px;
+            font-size: 1.2em;
+            margin: 10px;
             border: none;
             border-radius: 4px;
             background-color: #007bff;
@@ -37,7 +37,9 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+		
 
+		
         button:hover {
             background-color: #0056b3;
         }
@@ -56,13 +58,26 @@
         
         .button-group2 button {
            width: 200px; 
+		   height: 80px;
         }
+
+		.priceReset button{
+		
+			width: 210px; 
+			height: 80px;
+		}		
         
         .all {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+		
+		.all .button-group button{
+		
+			width: 130px;
+			 height: 80px;
+		}
 
         .allItem {
             display: flex;
@@ -75,12 +90,12 @@
 		#categoryBox{
 		
 	        padding: 10px;
-             font-size: 1.2em;
+            font-size: 1.2em;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 20px;
             text-align: center;
-            width: 250px; /* テキストボックスの幅を固定 */
+            width: 380px; /* テキストボックスの幅を固定 */
             box-sizing: border-box; /* ブラウザ間の表示差異を抑制 */	
 		
 		}
@@ -91,8 +106,10 @@
 		}
 		.categoryBox-button-group button{
 		
-			width: 120px;
+			width: 170px;
+			height: 80px;
 			background-color: #ff8400;
+			font-size: 1.2em
 		}
 
 		#koumokuBox{
@@ -125,7 +142,7 @@
 
         <input type="number" id="myTextbox" value="0">
 
-        <div class="button-group2">
+        <div class="priceReset">
             <button onclick="resetValue()">リセット</button>
         </div>
 
@@ -181,10 +198,10 @@
         </div>		
 				
 	</div>
-	
+		
+</div>	
 
-	
-	<div class "koumoku">
+<div class "koumoku">
 
         <input type="text" id="koumokuBox" value="0">
 		
@@ -208,7 +225,7 @@
         </div>			
 
 	</div>
-</div>	
+	
     <script>
 
         function changeValue(amount) {
